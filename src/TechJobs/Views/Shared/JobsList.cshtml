@@ -2,10 +2,10 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-<h3>@ViewBag.jobs.Count Result(s)</h3>
-
 @if (ViewBag.jobs != null)
 {
+
+    <h3>@ViewBag.jobs.Count Result(s)</h3>
 
     // TODO #2 - Loop over jobs dictionary and displays all job fields
 
@@ -25,4 +25,8 @@
             </tbody>
         </table>
     }
+}
+else
+{
+    <h3>0 Result(s)</h3> 
 }

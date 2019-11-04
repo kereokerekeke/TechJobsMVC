@@ -23,13 +23,14 @@ namespace TechJobs.Controllers
             return base.View();
         }
 
+        // This does not seem to work in new version with 'Access violation'
         public override ViewResult View(string viewName)
         {
             ViewBag.actionChoices = actionChoices;
             return base.View();
         }
 
-        virtual public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
