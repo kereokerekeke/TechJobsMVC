@@ -10,8 +10,9 @@
                 <input type="radio"
                        name="searchType"
                        id="@column.Key"
-                       value="@column.Key" 
-                       checked="@column.Key == 'all''"/>
+                       value="@column.Key"
+                       @if (ViewBag.searchType == column.Key) { @: checked
+                       } />
                 <label for="@column.Key">@column.Value</label>
             </span>
         }
@@ -27,10 +28,6 @@
 
 <hr />
 
-@if (ViewBag.jobs != null)
-{
-
-    <h3>@ViewBag.jobs.Count Result(s)</h3>
-
-    // TODO #2 - Loop over jobs dictionary and display all job fields 
+@{
+    Html.RenderPartial("JobsList");
 }
