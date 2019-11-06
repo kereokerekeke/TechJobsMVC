@@ -10,29 +10,33 @@ namespace TechJobs.Controllers
     {
 
         internal static Dictionary<string, string> actionChoices = new Dictionary<string, string>();
+        internal static Dictionary<string, string> columnChoices = new Dictionary<string, string>();
 
         static TechJobsController()
         {
             actionChoices.Add("search", "Search");
             actionChoices.Add("list", "List");
+
+            columnChoices.Add("core competency", "Skill");
+            columnChoices.Add("employer", "Employer");
+            columnChoices.Add("location", "Location");
+            columnChoices.Add("position type", "Position Type");
+            columnChoices.Add("all", "All");
         }
 
         public override ViewResult View()
         {
-            ViewBag.actionChoices = actionChoices;
+            ViewBag.actions = actionChoices;
+            ViewBag.columns = columnChoices;
             return base.View();
         }
 
-        // This does not seem to work in new version with 'Access violation'
         public override ViewResult View(string viewName)
         {
-            ViewBag.actionChoices = actionChoices;
-            return base.View();
+            ViewBag.actions = actionChoices;
+            ViewBag.columns = columnChoices;
+            return base.View(viewName);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
